@@ -20,7 +20,6 @@ Where:
 - \( \sigma \) = Volatility (annualised)  
 - \( N(\cdot) \) = Standard normal cumulative distribution function (CDF)
 
-### 🔍 What the App Visualises
 
 The app computes **PnL (Profit and Loss)** across a range of spot prices and volatilities using:
 
