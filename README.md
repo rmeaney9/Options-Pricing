@@ -14,7 +14,7 @@ Where:
 - $T$ = Time to maturity (in years)  
 - $r$ = Risk-free interest rate  
 - $\sigma$ = Volatility (annualised)  
-- $N(\cdot)$ = Standard normal cumulative distribution function (CDF)
+- $N$ = Standard normal cumulative distribution function (CDF)
 
 ---
 The app calculates and visualizes **profit and loss (PnL)** as a function of spot price and volatility:
