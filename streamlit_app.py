@@ -27,17 +27,12 @@ from bs_utils import call_price
 st.title("Black-Scholes Option Price Heatmap")
 
 option_type = st.sidebar.selectbox("Option Type", ["call", "put"])
-K = st.sidebar.slider("Strike Price (K)", 50, 150, 100)
-T_months = st.sidebar.slider("Time to Maturity (Months)", 1, 24, 12)
-T = T_months/12
-r = st.sidebar.slider("Risk-Free Rate (r)", 0.00, 0.20, 0.05)
-entry_sigma = st.sidebar.slider("Entry Volatility (σ) for Premium", 0.05, 0.5, 0.2)
+K = st.sidebar.number_input("Strike Price (K)", min_value=0.1, value=100.0, step=1.0, format="%.2f")
+T_months = st.sidebar.number_input("Time to Maturity (Months)", min_value=1.0, value=12.0,step = 1.0,format="%2f")
+T = T_months / 12
 
-use_model_price = st.sidebar.checkbox("Use model option price as entry", value=True)
-if use_model_price:
-    entry_price = call_price(S=K, K=K, T=T, r=r, sigma=entry_sigma, option_type=option_type)
-else:
-    entry_price = st.sidebar.number_input("Entry Option Price ($)", value=10.0, min_value=0.0)
+r = st.sidebar.number_input("Risk-Free Rate (r)", min_value=0.0,value=0.05,step=0.01,format="%.2f")
+entry_price = st.sidebar.number_input("Entry Option Price ($)", min_value = 0.0,value=5.0, step = 0.5, format="%.2f")
 
 contract_size = st.sidebar.number_input("Number of Options", value=1, min_value=1)
 
@@ -70,7 +65,7 @@ fig, ax = plt.subplots(figsize=(8, 6))
 c = ax.contourf(S_grid, sigma_grid, pnl_grid, levels=20, cmap=cmap, norm=norm)
 fig.colorbar(c, ax=ax, label="PnL ($)")
 ax.set_xlabel("Spot Price S ($)")
-ax.set_ylabel("Volatility σ (annualised)")
+ax.set_ylabel("Volatility σ (Annual)")
 ax.set_title(f"{position} {option_type.title()} Option PnL Heatmap")
 
 st.pyplot(fig)
