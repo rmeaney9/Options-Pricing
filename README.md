@@ -27,8 +27,8 @@ Where:
 - \( K \): Strike price  
 - \( T \): Time to maturity (in years)  
 - \( r \): Risk-free interest rate  
-- \( \sigma \): Volatility of the underlying asset  
-- \( N(\cdot) \): Standard normal cumulative distribution function
+- \( $$\sigma$$): Volatility of the underlying asset  
+- \( N): Standard normal cumulative distribution function
 
 With:
 
@@ -62,7 +62,7 @@ Color-coded output:
 
 ---
 
-## 🖥️ Running the App
+## Running the App
 
 1. Clone the repository:
    ```bash
