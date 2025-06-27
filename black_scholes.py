@@ -15,7 +15,7 @@ def call_price(S,K,T,r,sigma,option_type="call"):
         return K * np.exp(-r*T) * norm.cdf(-d2) - S * norm.cdf(-d1)
 
 
-# streamlit_app.py
+# black_scholes.py
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm
