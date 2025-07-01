@@ -66,3 +66,9 @@ Color-coded output:
    cd options-pricing
 2. pip install -r requirements.txt
 3. streamlit run streamlit_app.py
+
+
+## ✍️ Author
+
+Ronan Meaney
+[LinkedIn](linkedin.com/in/ronan-meaney) | [GitHub](github.com/rmeaney9)
