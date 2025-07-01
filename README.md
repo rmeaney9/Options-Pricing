@@ -58,10 +58,6 @@ Color-coded output:
 
 ---
 
-## Project Structure
-
----
-
 ## Running the App
 
 1. Clone the repository:
