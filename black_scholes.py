@@ -14,6 +14,30 @@ def call_price(S,K,T,r,sigma,option_type="call"):
     elif option_type == "put":
         return K * np.exp(-r*T) * norm.cdf(-d2) - S * norm.cdf(-d1)
 
+import streamlit as st
+from gpt_utils import extract_option_parameters
+
+user_input = st.text_input("Enter your option pricing query:")
+if st.button("Extract and Price"):
+    params = extract_option_parameters(user_input)
+    try:
+        st.write("Parsed Parameters:", params)
+        S = float(params["S"])
+        K = float(params["K"])
+        T = float(params["T"])
+        r = float(params["r"])
+        sigma = float(params["sigma"])
+        option_type = params["option_type"].lower()
+
+        price = call_price(S, K, T, r, sigma, option_type)
+        if option_type == "call":
+            st.success(f"Theoretical Call Option Price: ${price:.2f}")
+        elif option_type == "put":
+            st.error(f"Theoretical Put Option Price: ${price:.2f}")
+        else:
+            st.warning("Unknown option type.")
+    except Exception as e:
+        st.warning(f"Failed to parse or price option: {e}")
 
 # black_scholes.py
 import numpy as np
